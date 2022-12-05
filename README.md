@@ -2,10 +2,10 @@
 g++
 
 # How to Use
-Copy ### **`simple_pipe.h`** to your working directory
+Copy **`simple_pipe.h`** to your working directory
 
 # Examples
-Using the make file, two executables are compiled ###**`input`** and ###**`output`**
+Using the make file, two executables are compiled **`input`** and **`output`**
 ```
 make examples
 ```
