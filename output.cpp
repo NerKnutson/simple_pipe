@@ -1,7 +1,6 @@
 #include <fcntl.h> // O_RDONLY O_WRONLY
 #include "simple_pipe.h" // SimplePipe()
 #include <string> // std::stod()
-// Usage: ./output <FIFO_FILENAME>
 #define SIZE 4
 
 int main(int argc, char* argv[]) {

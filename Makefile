@@ -19,7 +19,7 @@ clean:
 examples: input output
 
 input: input.cpp
-	$(CXX) $(WARNING) $^ -o $@
+	$(CXX) $(WARNING) $^ -o bin/$@
 
 output: output.cpp
-	$(CXX) $(WARNING) $^ -o $@
+	$(CXX) $(WARNING) $^ -o bin/$@
