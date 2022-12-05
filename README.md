@@ -5,11 +5,10 @@ g++
 Copy **`simple_pipe.h`** to your working directory
 
 # Examples
-Using the make file, two executables are compiled **`input`** and **`output`**
+The makefile produces two executables: **`bin/input`** and **`bin/output`**
 ```
 make examples
 ```
-The examples pipe four double floating point values from input to output
 ## Usage
 To insert data into a FIFO file
 ```
