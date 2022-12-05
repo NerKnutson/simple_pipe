@@ -1,7 +1,7 @@
 # Dependencies
 g++
 
-# How to Use
+# Usage
 Copy **`simple_pipe.h`** to your working directory
 
 # Examples
