@@ -10,9 +10,16 @@ template <class T, size_t Size>
 class simplePipe {
 	public:
 		simplePipe(char file_name[], int PERMISSIONS) {
+			if(PERMISSIONS == O_RDONLY || PERMISSIONS == O_WRONLY)
+				perm = PERMISSIONS;
+			else {
+				fprintf(stderr, "Invalid permissions\nPlease choose O_RDONLY or O_WRONLY.\n");
+				return;
+			}
+
 			if(mkfifo(file_name, 0666) != 0) { // File already exists
 				// Open file
-				fifo = open(file_name, PERMISSIONS);
+				fifo = open(file_name, PERMISSIONS | O_NONBLOCK);
 				struct stat st;
 
 				// Check if the file is a FIFO
@@ -24,12 +31,6 @@ class simplePipe {
 			} else { // File successfully created
 				// Open file
 				fifo = open(file_name, PERMISSIONS);
-			}
-			if(PERMISSIONS == O_RDONLY || PERMISSIONS == O_WRONLY)
-				perm = PERMISSIONS;
-			else {
-				fprintf(stderr, "Invalid permissions\nPlease choose O_RDONLY or O_WRONLY.\n");
-				return;
 			}
 		}
 
