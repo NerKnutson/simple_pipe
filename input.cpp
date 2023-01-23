@@ -1,6 +1,7 @@
 #include <fcntl.h> // O_RDONLY O_WRONLY
 #include "simple_pipe.h" // SimplePipe()
 #include <string> // std::stod()
+#include <unistd.h> // usleep(microseconds)
 #define SIZE 4
 
 int main(int argc, char* argv[]) {
@@ -12,7 +13,11 @@ int main(int argc, char* argv[]) {
 	for(int i = 0; i < SIZE; ++i)
 		message[i] = std::stod(argv[i+2]);
 
-	test.pipeOut((double (&)[SIZE])message);
+	while(true) {
+		int writBytes = test.pipeOut((double (&)[SIZE])message);
+		printf("Bytes Written: %d\n", writBytes);
+		usleep(1000);
+	}
 	return 0;
 }
 #undef SIZE

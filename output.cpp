@@ -15,10 +15,11 @@ int main(int argc, char* argv[]) {
 			printf("Message: ");
 			for(int i = 0; i < SIZE; ++i)
 				printf("%f\t", message[i]);
-			printf("\nBytes: %d\n", bytes);
+			printf("\nBytes read: %d\n", bytes); fflush(stdout);
 		}
-		else
-			usleep(SIZE);
+		else{
+			usleep(1000);
+		}
 	}
 	return 0;
 }
